@@ -1,0 +1,46 @@
+ALGORITHM algorithm2
+VAR
+    set_1: ARRAY_OF INTEGER[];
+    set_2: ARRAY_OF INTEGER[];
+    sum:INTEGER:=0;
+    element:INTEGER;
+    count:INTEGER;
+    key:INTEGER;
+
+BEGIN
+    write("entre set 1");
+    read(set_1);
+    write("entre set 2");
+    read(set_2);
+
+    FOR i FROM 0 TO i < set_1.length STEP 1  DO
+        element= set_1[i];
+        IF (map.containsKey(element)) THEN
+            count = map.get(element);
+            map.put(element, count+1);
+        ELSE
+            map.put(element, 1);
+        END_IF  
+    END_FOR
+    FOR i FROM 0 TO i < set_2.length STEP 1  DO
+        element= set_2[i];
+        IF (map.containsKey(element)) THEN
+            count = map.get(element);
+            map.put(element, count+1);
+        ELSE
+            map.put(element, 1);
+        END_IF  
+    END_FOR
+    
+    Set<INTEGER> set = map.keySet();
+    Iterator<INTEGER> iterator = set.iterator();
+    WHILE (iterator.hasNext()) DO
+        key = iterator.next();
+        IF (map.get(key)==1) THEN
+            sum+=key;
+        END_IF
+    END_WHILE
+
+    write("sum :" sum);
+
+END
